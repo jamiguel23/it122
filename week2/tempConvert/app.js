@@ -7,28 +7,21 @@ let form = document.querySelector('form')
 function handleSubmit(event) {
   event.preventDefault();
 
-  // console.log('inside handle submit', +event.target.temp.value);
-
   let faren = document.getElementById('faren')
 
   let temp = +event.target.temp.value;
-
-  console.log(temp == NaN);
+//to check if temp is truthy or falsy
+  console.log(temp);
   if(!temp){
 
-  console.log(temp);
-
   faren.textContent = "please enter a number"
-  
+
   }else{
     
     let degFahren = 9 / 5 * temp + 32
     
-  
     faren.textContent = `You entered ${temp} C! After some magic that comes to ${degFahren} F. Wow, much temperature`
   }
   
-
-
 }
 form.addEventListener('submit' , handleSubmit);
