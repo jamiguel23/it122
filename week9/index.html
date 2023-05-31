@@ -12,38 +12,26 @@
 <body>
   <div class="container">
     <h1>What do you want to learn?</h1>
-    <p>click below to see a random fact of the day!</p>
+    <article>
+      
+      <p>Enter a planet name to view facts!</p>
+  <input type="text" id="userInput" placeholder="Enter a planet name"> 
+      <button onclick="showPlanetFact()">Get Planet Fact</button>
+  
+      <p id="fact"></p>
+    </article>
 
-    <button onclick="showFact()">Get Fact</button>
+    <article>
+      
+      <p>Enter as city to see their weather!</p>
+      <input type="text" id="userWeather" placeholder="Enter a planet name"> 
+      <button onclick="showWeather()">Get Weather</button>
+  
+      <p id="weather"></p>
+    </article>
 
-    <p id="fact"></p>
   </div>
-  <script>
-    async function getFact() {
-
-      var myHeaders = new Headers();
-      myHeaders.append("X-Api-Key", "y5TJQhHVNXPu02MMlvYPGw==Qha8QKpVf2zMq8dC");
-
-      var requestOptions = {
-        method: 'GET',
-        headers: myHeaders,
-        redirect: 'follow'
-      };
-      const api_endpoint = "https://api.api-ninjas.com/v1/facts?limit=1"
-      const response = await fetch(api_endpoint,requestOptions);
-      const json_response = await response.json();
-
-      // console.log(json_response[0].fact);
-      let data = json_response[0].fact
-      return data;
-    }
-
-    async function showFact() {
-      const factResponse = await getFact();
-      const paragraphTag = document.getElementById("fact");
-      paragraphTag.innerText = factResponse;
-    }
-
+  <script src="index.js">
   </script>
 </body>
 
